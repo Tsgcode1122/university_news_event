@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="header-container">
+
+    <a href="{{ path('<front>') }}" class="text-logo">
+      University News & Events Hub
+    </a>
+
+    {% if page.primary_menu %}
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        {{ page.primary_menu }}
+      </nav>
+    {% endif %}
+
+  </div>
+</header>

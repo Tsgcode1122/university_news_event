@@ -1,0 +1,10 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      css/hero.css: {}
+      css/announcements.css: {}
+      css/news.css: {}
+      css/events.css: {}
+      css/spotlights.css: {}
+      css/details.css: {}

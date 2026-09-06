@@ -1,0 +1,20 @@
+{% include '@university_hub/components/header.html.twig' %}
+
+<main class="login-page">
+  <div class="login-shell">
+    <a class="login-back" href="{{ path('<front>') }}"><span aria-hidden="true">←</span> {{ 'Back to the hub'|t }}</a>
+    <section class="login-card" aria-labelledby="login-heading">
+      <header class="login-header">
+        <p class="login-kicker">{{ 'University News & Events Hub'|t }}</p>
+        <h1 id="login-heading">{{ 'Administrator login'|t }}</h1>
+        <p>{{ 'Sign in with your university hub account to manage content.'|t }}</p>
+      </header>
+      {{ page.content }}
+      <div class="login-help">
+        <a href="{{ path('user.pass') }}">{{ 'Forgot your password?'|t }}</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+{% include '@university_hub/components/footer.html.twig' %}

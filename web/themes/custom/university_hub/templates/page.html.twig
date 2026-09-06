@@ -1,0 +1,13 @@
+{% include '@university_hub/components/header.html.twig' %}
+
+{% if is_front %}
+  {% include '@university_hub/components/hero.html.twig' %}
+{% endif %}
+
+<main class="site-main">
+  <div class="main-content">
+    {{ page.content }}
+  </div>
+</main>
+
+{% include '@university_hub/components/footer.html.twig' %}

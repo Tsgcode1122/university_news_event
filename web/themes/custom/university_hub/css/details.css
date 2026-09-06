@@ -1,0 +1,188 @@
+/* Individual news, events and community stories. */
+.detail-header { max-width: 960px; margin: 0 auto 2rem; }
+.detail-breadcrumb { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 2rem; color: #64748b; font-size: 0.82rem; }
+.detail-breadcrumb [aria-current] { overflow-wrap: anywhere; }
+.detail-category { display: inline-block; margin-bottom: 1rem; padding: 0.4rem 0.7rem; border-radius: 3px; background: #edf3fa; color: #005eb8; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
+.main-content .hub-detail h1 { margin: 0 0 1.25rem; color: #041e42; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; overflow-wrap: anywhere; }
+.detail-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.5rem; color: #64748b; font-size: 0.9rem; }
+.hub-detail .field__label { display: none; }
+.detail-meta .field, .detail-category .field { margin: 0; }
+.detail-image { margin-bottom: 2.5rem; border-radius: 12px; overflow: hidden; background: #f1f5f9; }
+.detail-image .field { margin: 0; }
+.detail-image img { display: block; width: 100%; height: auto; max-height: 600px; object-fit: contain; }
+.detail-layout { max-width: 800px; margin: 0 auto; }
+.detail-story { min-width: 0; color: #334155; font-size: 1.075rem; line-height: 1.85; overflow-wrap: anywhere; }
+.detail-story p { margin-bottom: 1.4rem; }
+.main-content .detail-story h2, .main-content .detail-story h3 { margin-top: 2rem; margin-bottom: 0.8rem; color: #041e42; line-height: 1.3; }
+.detail-story img, .detail-story video, .detail-story iframe { max-width: 100%; }
+.detail-story img { height: auto; }
+.detail-story blockquote { margin: 1.75rem 0; padding: 1rem 1.5rem; border-left: 3px solid #005eb8; background: #f1f5f9; }
+.detail-story ul, .detail-story ol { padding-left: 1.5rem; }
+.hub-detail--event .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 3rem; max-width: 1100px; }
+.detail-facts { align-self: start; padding: 1.5rem; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 10px; }
+.main-content .detail-facts h2 { margin-bottom: 1.5rem; color: #041e42; font-size: 1.25rem; }
+.detail-facts dl { margin: 0; }
+.detail-facts dl > div { margin-bottom: 1.25rem; }
+.detail-facts dt { margin-bottom: 0.4rem; font-weight: 800; font-size: 0.8rem; color: #041e42; }
+.detail-facts dd { margin: 0; color: #475569; line-height: 1.6; overflow-wrap: anywhere; }
+.detail-registration a { display: flex; justify-content: center; padding: 0.8rem 1rem; min-height: 44px; border-radius: 6px; background: #005eb8; color: #ffffff; font-weight: 700; text-align: center; overflow-wrap: anywhere; }
+.detail-registration a:hover, .detail-registration a:focus-visible { background: #041e42; color: #ffffff; }
+.detail-footer { max-width: 960px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid #e2e8f0; }
+.detail-footer a { display: inline-flex; align-items: center; gap: 0.65rem; min-height: 44px; font-weight: 700; }
+@media (max-width: 800px) { .hub-detail--event .detail-layout { grid-template-columns: 1fr; gap: 2rem; } .detail-facts { grid-row: 1; } }
+@media (max-width: 600px) { .detail-breadcrumb { font-size: 0.75rem; } .detail-image { border-radius: 6px; } .detail-story { font-size: 1rem; } }
+
+/* Full-width photographic header and article/sidebar composition. */
+.site-main:has(.hub-detail) {
+  padding-top: 0;
+}
+
+.hub-detail .detail-header {
+  position: relative;
+  isolation: isolate;
+  width: 100cqw;
+  max-width: none;
+  margin: 0 calc(50% - 50cqw) 2.5rem;
+  padding: 0 max(1.5rem, calc((100cqw - 1200px) / 2));
+  overflow: hidden;
+  background: #041e42;
+}
+
+.detail-hero-image,
+.detail-header::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.detail-header::after {
+  content: "";
+  background: linear-gradient(90deg, rgba(0, 13, 32, 0.85), rgba(0, 13, 32, 0.45)), linear-gradient(0deg, rgba(0, 13, 32, 0.6), transparent);
+}
+
+.detail-hero-image .field,
+.detail-hero-image .field__item,
+.detail-hero-image article,
+.detail-hero-image .media {
+  height: 100%;
+  margin: 0;
+}
+
+.detail-hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-height: 320px;
+  padding: 1.75rem 0;
+}
+
+.hub-detail .detail-header h1 {
+  max-width: 880px;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.detail-header .detail-breadcrumb {
+  margin: 1.25rem 0 0;
+  padding-bottom: 0;
+  color: #e2e8f0;
+}
+
+.detail-header .detail-breadcrumb a,
+.detail-header .detail-meta a {
+  color: #ffffff;
+}
+
+.detail-header .detail-meta {
+  color: #e2e8f0;
+}
+
+.detail-header .detail-category {
+  background: #005eb8;
+  color: #ffffff;
+}
+
+.detail-header .detail-category a {
+  color: #ffffff;
+}
+
+.hub-detail .detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 3rem;
+  max-width: 1200px;
+}
+
+.detail-sidebar {
+  display: grid;
+  align-content: start;
+  gap: 1.5rem;
+}
+
+.detail-related {
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: #f3f7fb;
+}
+
+.main-content .detail-related h2 {
+  margin-bottom: 1.25rem;
+  font-size: 1.15rem;
+  color: #041e42;
+}
+
+.detail-related ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-related li {
+  padding: 1rem 0;
+  border-top: 1px solid #dbe4ee;
+}
+
+.detail-related li a {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  color: #041e42;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.detail-related-image {
+  flex: 0 0 85px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.detail-related-image img {
+  display: block;
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+}
+
+.detail-related-image .field { margin: 0; }
+.detail-browse { display: inline-flex; gap: 0.5rem; padding-top: 0.75rem; font-size: 0.9rem; font-weight: 700; }
+
+@media (max-width: 800px) {
+  .hub-detail .detail-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .hub-detail--event .detail-sidebar { grid-row: 1; }
+  .detail-header-content { min-height: 300px; }
+}
+
+@media (max-width: 600px) {
+  .hub-detail .detail-header { padding-inline: 1rem; }
+  .detail-header-content { min-height: 280px; }
+}

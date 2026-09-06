@@ -1,0 +1,32 @@
+<article{{ attributes.addClass('hub-detail', 'hub-detail--spotlight') }}>
+  <header class="detail-header">
+    {% if not node.field_featured_image.isEmpty() %}
+      <div class="detail-hero-image" aria-hidden="true">{{ content.field_featured_image }}</div>
+    {% endif %}
+    <div class="detail-header-content">
+    {% if not node.field_person_type.isEmpty() %}<div class="detail-category">{{ content.field_person_type }}</div>{% endif %}
+    {{ title_prefix }}
+    <h1{{ title_attributes }}>{{ label }}</h1>
+    {{ title_suffix }}
+    <div class="detail-meta">
+      {% if not node.field_department.isEmpty() %}{{ content.field_department }}{% endif %}
+      {% if not node.field_publication_date.isEmpty() %}{{ content.field_publication_date }}{% endif %}
+      {% if not node.field_person_name.isEmpty() %}<span class="detail-person">{{ content.field_person_name }}</span>{% endif %}
+    </div>
+    <nav class="detail-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+      <a href="{{ path('<front>') }}">{{ 'Home'|t }}</a><span aria-hidden="true">/</span>
+      <a href="{{ path('view.spotlights.page_1') }}">{{ 'Spotlights'|t }}</a><span aria-hidden="true">/</span>
+      <span aria-current="page">{{ label }}</span>
+    </nav>
+    </div>
+  </header>
+  <div class="detail-layout">
+    <div class="detail-story">
+      {{ content.field_spotlight_story }}
+    </div>
+    <div class="detail-sidebar">
+      {% include '@university_hub/components/detail-related.html.twig' with {'related_label': 'More spotlights'|t, 'listing_route': 'view.spotlights.page_1'} %}
+    </div>
+  </div>
+  <footer class="detail-footer"><a href="{{ path('view.spotlights.page_1') }}"><span aria-hidden="true">←</span> {{ 'Back to Spotlights'|t }}</a></footer>
+</article>

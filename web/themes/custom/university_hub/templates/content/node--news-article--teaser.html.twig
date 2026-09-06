@@ -1,0 +1,75 @@
+<article class="news-card">
+
+  <a href="{{ url }}" class="news-card-image-link">
+
+    <div class="news-card-image">
+      {{ content.field_featured_image }}
+    </div>
+
+  </a>
+
+
+  <div class="news-card-body">
+
+    <div class="news-card-taxonomy">
+
+      {% if content.field_news_category %}
+        <div class="news-category">
+          {{ content.field_news_category }}
+        </div>
+      {% endif %}
+
+
+      {% if content.field_department %}
+        <div class="news-department">
+          {{ content.field_department }}
+        </div>
+      {% endif %}
+
+    </div>
+
+
+    <h3 class="news-card-title">
+
+      <a href="{{ url }}">
+        {{ node.label }}
+      </a>
+
+    </h3>
+
+
+   {% if node.body.value %}
+  <div class="news-card-summary">
+    {{ node.body.value|striptags }}
+  </div>
+{% endif %}
+
+
+    <div class="news-card-footer">
+
+      {% if content.field_publication_date %}
+
+        <div class="news-date">
+          {{ content.field_publication_date }}
+        </div>
+
+      {% endif %}
+
+
+      <a href="{{ url }}" class="news-read-more">
+
+        <span class="news-read-more-text">
+          Read Full Story
+        </span>
+
+        <span aria-hidden="true">
+          →
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</article>

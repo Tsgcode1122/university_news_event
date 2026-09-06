@@ -1,0 +1,7 @@
+hub_home.page:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\hub_home\Controller\HomeController::page'
+    _title: 'Home'
+  requirements:
+    _access: 'TRUE'

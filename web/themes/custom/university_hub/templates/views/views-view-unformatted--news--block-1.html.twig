@@ -1,0 +1,61 @@
+<section class="featured-news-section">
+
+  <div class="featured-news-header">
+
+    <p class="featured-news-kicker">
+      <span aria-hidden="true"></span>
+      LATEST NEWS
+    </p>
+
+    <div class="featured-news-title-row">
+
+      <h2 class="featured-news-title">
+        Featured Stories
+      </h2>
+
+      <a href="/news" class="featured-news-view-all">
+        View All News
+        <span aria-hidden="true">→</span>
+      </a>
+
+    </div>
+
+    <p class="featured-news-description">
+      In-depth coverage of research, campus life, and university achievements.
+    </p>
+
+  </div>
+
+
+  {% if rows %}
+
+    <div class="featured-news-grid">
+
+      {% if rows[0] %}
+        <div class="featured-news-main">
+          {{ rows[0].content }}
+        </div>
+      {% endif %}
+
+
+      <div class="featured-news-side">
+
+        {% if rows[1] %}
+          <div class="featured-news-small">
+            {{ rows[1].content }}
+          </div>
+        {% endif %}
+
+        {% if rows[2] %}
+          <div class="featured-news-small">
+            {{ rows[2].content }}
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  {% endif %}
+
+</section>

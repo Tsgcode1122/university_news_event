@@ -1,0 +1,55 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-overlay">
+    <div class="hero-content">
+
+      <p class="hero-kicker">
+        NEWS & EVENTS HUB
+      </p>
+
+      <h1 id="hero-title" class="hero-title">
+        Shaping Tomorrow,<br>
+        Today.
+      </h1>
+
+      <p class="hero-description">
+        Discover the latest research breakthroughs, campus events,
+        and stories from across our university community.
+      </p>
+
+      <form class="hero-search" action="{{ path('search.view_node_search') }}" method="get" role="search">
+        <label for="hero-search-input" class="visually-hidden">
+          Search news and events
+        </label>
+
+        <input
+          id="hero-search-input"
+          type="search"
+          name="keys"
+          required
+          placeholder="Search news, events, people..."
+        >
+
+        <button type="submit">
+          Search
+        </button>
+      </form>
+
+      <div class="hero-popular" aria-label="Popular links">
+        <span>Popular:</span>
+
+        <a href="/news">
+          Research
+        </a>
+
+        <a href="/events">
+          Events
+        </a>
+
+        <a href="/spotlights">
+          Spotlights
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

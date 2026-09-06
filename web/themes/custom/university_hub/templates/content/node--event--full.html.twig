@@ -1,0 +1,40 @@
+<article{{ attributes.addClass('hub-detail', 'hub-detail--event') }}>
+  <header class="detail-header">
+    {% if not node.field_featured_image.isEmpty() %}
+      <div class="detail-hero-image" aria-hidden="true">{{ content.field_featured_image }}</div>
+    {% endif %}
+    <div class="detail-header-content">
+    {% if not node.field_event_category.isEmpty() %}<div class="detail-category">{{ content.field_event_category }}</div>{% endif %}
+    {{ title_prefix }}
+    <h1{{ title_attributes }}>{{ label }}</h1>
+    {{ title_suffix }}
+    <div class="detail-meta">
+      {% if not node.field_department.isEmpty() %}{{ content.field_department }}{% endif %}
+    </div>
+    <nav class="detail-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+      <a href="{{ path('<front>') }}">{{ 'Home'|t }}</a><span aria-hidden="true">/</span>
+      <a href="{{ path('view.events.page_1') }}">{{ 'Events'|t }}</a><span aria-hidden="true">/</span>
+      <span aria-current="page">{{ label }}</span>
+    </nav>
+    </div>
+  </header>
+  <div class="detail-layout">
+    <div class="detail-story">
+      <h2>{{ 'About this event'|t }}</h2>
+      {{ content.field_event_description }}
+    </div>
+    <div class="detail-sidebar">
+    <aside class="detail-facts" aria-labelledby="event-details-heading">
+      <h2 id="event-details-heading">{{ 'Event details'|t }}</h2>
+      <dl>
+        {% if not node.field_start_date_time.isEmpty() %}<div><dt>{{ 'Starts'|t }}</dt><dd>{{ content.field_start_date_time }}</dd></div>{% endif %}
+        {% if not node.field_end_date_time.isEmpty() %}<div><dt>{{ 'Ends'|t }}</dt><dd>{{ content.field_end_date_time }}</dd></div>{% endif %}
+        {% if not node.field_location.isEmpty() %}<div><dt>{{ 'Location'|t }}</dt><dd>{{ content.field_location }}</dd></div>{% endif %}
+      </dl>
+      {% if not node.field_registration_link.isEmpty() %}<div class="detail-registration">{{ content.field_registration_link }}</div>{% endif %}
+    </aside>
+    {% include '@university_hub/components/detail-related.html.twig' with {'related_label': 'More events'|t, 'listing_route': 'view.events.page_1'} %}
+    </div>
+  </div>
+  <footer class="detail-footer"><a href="{{ path('view.events.page_1') }}"><span aria-hidden="true">←</span> {{ 'Back to Events'|t }}</a></footer>
+</article>

@@ -1,0 +1,5 @@
+name: University Hub Homepage
+type: module
+description: Provides a dedicated homepage for the university hub sections.
+core_version_requirement: ^11
+package: Custom

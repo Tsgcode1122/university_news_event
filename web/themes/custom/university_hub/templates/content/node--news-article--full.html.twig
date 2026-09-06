@@ -1,0 +1,31 @@
+<article{{ attributes.addClass('hub-detail', 'hub-detail--news-article') }}>
+  <header class="detail-header">
+    {% if not node.field_featured_image.isEmpty() %}
+      <div class="detail-hero-image" aria-hidden="true">{{ content.field_featured_image }}</div>
+    {% endif %}
+    <div class="detail-header-content">
+    {% if not node.field_news_category.isEmpty() %}<div class="detail-category">{{ content.field_news_category }}</div>{% endif %}
+    {{ title_prefix }}
+    <h1{{ title_attributes }}>{{ label }}</h1>
+    {{ title_suffix }}
+    <div class="detail-meta">
+      {% if not node.field_department.isEmpty() %}{{ content.field_department }}{% endif %}
+      {% if not node.field_publication_date.isEmpty() %}{{ content.field_publication_date }}{% endif %}
+    </div>
+    <nav class="detail-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+      <a href="{{ path('<front>') }}">{{ 'Home'|t }}</a><span aria-hidden="true">/</span>
+      <a href="{{ path('view.news.page_1') }}">{{ 'News'|t }}</a><span aria-hidden="true">/</span>
+      <span aria-current="page">{{ label }}</span>
+    </nav>
+    </div>
+  </header>
+  <div class="detail-layout">
+    <div class="detail-story">
+      {{ content.field_body }}
+    </div>
+    <div class="detail-sidebar">
+      {% include '@university_hub/components/detail-related.html.twig' with {'related_label': 'More news'|t, 'listing_route': 'view.news.page_1'} %}
+    </div>
+  </div>
+  <footer class="detail-footer"><a href="{{ path('view.news.page_1') }}"><span aria-hidden="true">←</span> {{ 'Back to News'|t }}</a></footer>
+</article>

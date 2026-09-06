@@ -1,0 +1,33 @@
+<section class="announcements-section">
+
+  <div class="announcements-inner">
+
+    <div class="announcements-header">
+
+      <p class="announcements-kicker">
+        <span aria-hidden="true"></span>
+        ANNOUNCEMENTS
+      </p>
+
+    </div>
+
+
+    {% if rows %}
+
+      <div class="announcements-grid">
+
+        {% for row in rows|slice(0, 3) %}
+
+          <div class="announcement-item">
+            {{ row.content }}
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    {% endif %}
+
+  </div>
+
+</section>

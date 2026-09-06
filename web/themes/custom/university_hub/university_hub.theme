@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Theme helpers for university detail pages.
+ */
+
+use Drupal\Core\Cache\CacheableMetadata;
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function university_hub_preprocess_node(array &$variables): void {
+  $node = $variables['node'];
+  if ($variables['view_mode'] !== 'full' || !in_array($node->bundle(), ['news_article', 'event', 'spotlight'], TRUE)) {
+    return;
+  }
+  $cache = new CacheableMetadata();
+  $cache->addCacheTags(['node_list:' . $node->bundle()]);
+  $cache->addCacheContexts(['user.permissions', 'user.node_grants:view', 'languages:language_content']);
+  $ids = \Drupal::entityQuery('node')->accessCheck(TRUE)
+    ->condition('type', $node->bundle())->condition('status', 1)
+    ->condition('nid', $node->id(), '<>')->sort('created', 'DESC')->range(0, 3)->execute();
+  $variables['detail_related'] = [];
+  foreach (\Drupal::entityTypeManager()->getStorage('node')->loadMultiple($ids) as $related) {
+    $access = $related->access('view', NULL, TRUE);
+    $cache->addCacheableDependency($access)->addCacheableDependency($related);
+    if (!$access->isAllowed()) {
+      continue;
+    }
+    $image = [];
+    if (!$related->get('field_featured_image')->isEmpty()) {
+      $image = $related->get('field_featured_image')->view([
+        'label' => 'hidden',
+        'type' => 'media_thumbnail',
+        'settings' => ['image_style' => 'thumbnail', 'image_link' => ''],
+      ]);
+    }
+    $variables['detail_related'][] = ['title' => $related->label(), 'url' => $related->toUrl()->toString(), 'image' => $image];
+  }
+  $variables['detail_related_cache'] = ['#markup' => ''];
+  $cache->applyTo($variables['detail_related_cache']);
+}

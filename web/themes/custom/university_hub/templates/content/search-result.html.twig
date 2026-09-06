@@ -1,0 +1,12 @@
+<article class="hub-search-result">
+  {{ title_prefix }}
+  {% if info_split.type %}
+    <p class="hub-search-result-type">{{ info_split.type }}</p>
+  {% endif %}
+  <h3{{ title_attributes }}><a href="{{ url }}">{{ title }}</a></h3>
+  {{ title_suffix }}
+  {% if snippet %}
+    <p{{ content_attributes }}>{{ snippet }}</p>
+  {% endif %}
+  <a class="hub-search-result-link" href="{{ url }}">{{ 'View full story'|t }} <span aria-hidden="true">→</span></a>
+</article>

@@ -1,0 +1,467 @@
+/* ==================================================
+   SPOTLIGHTS SECTION
+================================================== */
+
+.spotlights-section {
+  width: 100%;
+
+  padding: 3.5rem 0;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.spotlights-header {
+  margin-bottom: 1.75rem;
+}
+
+
+.spotlights-kicker {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  margin: 0 0 0.6rem;
+
+  color: #0f2d52;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+.spotlights-kicker span {
+  width: 26px;
+  height: 2px;
+
+  background: #ffb81c;
+}
+
+
+/* ==================================================
+   TITLE ROW
+================================================== */
+
+.spotlights-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 2rem;
+}
+
+
+.spotlights-heading {
+  flex: 1;
+}
+
+
+.spotlights-title {
+  margin: 0 0 0.35rem;
+
+  color: #041e42;
+
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-weight: 800;
+
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+
+.spotlights-description {
+  margin: 0;
+
+  max-width: 720px;
+
+  color: #64748b;
+
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+/* ==================================================
+   VIEW ALL
+================================================== */
+
+.spotlights-view-all {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  flex-shrink: 0;
+
+  margin-top: 0.3rem;
+  padding: 0.65rem 1rem;
+
+  color: #005eb8;
+
+  border: 1px solid #005eb8;
+  border-radius: 6px;
+
+  font-size: 0.85rem;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.spotlights-view-all:hover,
+.spotlights-view-all:focus {
+  color: #ffffff;
+
+  background: #005eb8;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==================================================
+   GRID
+================================================== */
+
+.spotlights-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 1.5rem;
+}
+
+
+/* ==================================================
+   CARD
+================================================== */
+
+.spotlight-card {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  box-shadow:
+    0 6px 20px rgba(15, 23, 42, 0.07);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.spotlight-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 14px 32px rgba(15, 23, 42, 0.12);
+}
+
+
+/* ==================================================
+   IMAGE
+================================================== */
+
+.spotlight-image-link {
+  display: block;
+
+  overflow: hidden;
+}
+
+
+.spotlight-image {
+  width: 100%;
+  height: 220px;
+
+  overflow: hidden;
+
+  background: #e2e8f0;
+}
+
+
+.spotlight-image .field,
+.spotlight-image .field__item,
+.spotlight-image article,
+.spotlight-image .media {
+  height: 100%;
+
+  margin: 0;
+}
+
+
+.spotlight-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.35s ease;
+}
+
+
+.spotlight-card:hover .spotlight-image img {
+  transform: scale(1.035);
+}
+
+
+/* ==================================================
+   CARD BODY
+================================================== */
+
+.spotlight-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  padding: 1.25rem;
+}
+
+
+/* ==================================================
+   META
+================================================== */
+
+.spotlight-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 0.65rem;
+
+  margin-bottom: 0.7rem;
+}
+
+
+.spotlight-person-type {
+  color: #005eb8;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+.spotlight-department {
+  color: #64748b;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+
+.spotlight-department .field__label {
+  display: none;
+}
+
+
+.spotlight-department .field,
+.spotlight-department .field__items,
+.spotlight-department .field__item {
+  margin: 0;
+  padding: 0;
+}
+
+
+.spotlight-department a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.spotlight-card-title {
+  margin: 0 0 0.75rem;
+
+  color: #041e42;
+
+  font-size: 1.15rem;
+  font-weight: 800;
+
+  line-height: 1.25;
+}
+
+
+.spotlight-card-title a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+.spotlight-card-title a:hover,
+.spotlight-card-title a:focus {
+  color: #005eb8;
+}
+
+
+/* ==================================================
+   SUMMARY
+================================================== */
+
+.spotlight-summary {
+  display: -webkit-box;
+
+  margin-bottom: 1rem;
+
+  overflow: hidden;
+
+  color: #64748b;
+
+  font-size: 0.88rem;
+  line-height: 1.5;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  line-clamp: 3;
+}
+
+
+/* ==================================================
+   READ MORE
+================================================== */
+
+.spotlight-read-more {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.45rem;
+
+  margin-top: auto;
+
+  color: #005eb8;
+
+  font-size: 0.85rem;
+  font-weight: 800;
+
+  text-decoration: none;
+}
+
+
+.spotlight-read-more span {
+  transition: transform 0.2s ease;
+}
+
+
+.spotlight-read-more:hover span,
+.spotlight-read-more:focus span {
+  transform: translateX(4px);
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 950px) {
+
+  .spotlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 680px) {
+
+  .spotlights-section {
+    padding: 2.5rem 0;
+  }
+
+
+  .spotlights-title-row {
+    flex-direction: column;
+
+    gap: 1rem;
+  }
+
+
+  .spotlights-view-all {
+    margin-top: 0;
+  }
+
+
+  .spotlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .spotlight-image {
+    height: 200px;
+  }
+
+}
+
+/* Spotlight archive cards, coordinated with News. */
+.spotlights-listing .spotlight-card {
+  position: relative;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(4, 30, 66, 0.07);
+}
+
+.spotlights-listing .spotlight-image {
+  height: 210px;
+}
+
+.spotlights-listing .spotlight-card-body {
+  padding: 1.25rem;
+}
+
+.spotlights-listing .spotlight-person-type {
+  padding: 0.4rem 0.6rem;
+  color: #ffffff;
+  background: #005eb8;
+  border-radius: 2px;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.spotlights-listing .spotlight-card-title {
+  margin-bottom: 0.6rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.spotlights-listing .spotlight-summary {
+  -webkit-line-clamp: 2;
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.spotlights-listing .spotlight-read-more {
+  margin-top: auto;
+}

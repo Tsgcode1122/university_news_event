@@ -1,0 +1,33 @@
+<article{{ attributes.addClass('hub-detail', 'announcement-detail') }}>
+  <header class="announcement-detail-header">
+    <p class="announcement-detail-kicker">{{ 'Campus announcement'|t }}</p>
+    {% set priority = node.field_priority.value|lower %}
+    {% if priority %}
+      <div class="announcement-detail-priority announcement-detail-priority--{{ priority|clean_class }}">{{ content.field_priority }}</div>
+    {% endif %}
+    {{ title_prefix }}
+    <h1{{ title_attributes }}>{{ label }}</h1>
+    {{ title_suffix }}
+    <div class="detail-meta">
+      {% if not node.field_department.isEmpty() %}{{ content.field_department }}{% endif %}
+      {% if not node.field_publication_date.isEmpty() %}{{ content.field_publication_date }}{% endif %}
+    </div>
+    <nav class="detail-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+      <a href="{{ path('<front>') }}">{{ 'Home'|t }}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ 'Announcement'|t }}</span>
+    </nav>
+  </header>
+  <div class="detail-layout">
+    <div class="detail-story">{{ content.field_announcement_body }}</div>
+    <aside class="detail-facts" aria-labelledby="announcement-info-heading">
+      <h2 id="announcement-info-heading">{{ 'Announcement details'|t }}</h2>
+      <dl>
+        {% if not node.field_department.isEmpty() %}<div><dt>{{ 'Department'|t }}</dt><dd>{{ content.field_department }}</dd></div>{% endif %}
+        {% if not node.field_publication_date.isEmpty() %}<div><dt>{{ 'Published'|t }}</dt><dd>{{ content.field_publication_date }}</dd></div>{% endif %}
+        {% if not node.field_expiration_date.isEmpty() %}<div><dt>{{ 'Valid until'|t }}</dt><dd>{{ content.field_expiration_date }}</dd></div>{% endif %}
+      </dl>
+    </aside>
+  </div>
+  <footer class="detail-footer"><a href="{{ path('<front>') }}"><span aria-hidden="true">←</span> {{ 'Back to the hub'|t }}</a></footer>
+</article>

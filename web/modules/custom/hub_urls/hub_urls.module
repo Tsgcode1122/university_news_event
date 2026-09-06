@@ -1,0 +1,47 @@
+<?php
+
+use Drupal\node\NodeInterface;
+use Drupal\path_alias\Entity\PathAlias;
+
+/**
+ * Implements hook_node_insert().
+ */
+function hub_urls_node_insert(NodeInterface $node): void {
+  hub_urls_ensure_alias($node);
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function hub_urls_node_update(NodeInterface $node): void {
+  hub_urls_ensure_alias($node);
+}
+
+/**
+ * Creates a unique title URL, preserving existing and manually chosen aliases.
+ */
+function hub_urls_ensure_alias(NodeInterface $node): void {
+  if (!in_array($node->bundle(), ['news_article', 'event', 'spotlight', 'announcement', 'page'], TRUE)) {
+    return;
+  }
+  $storage = \Drupal::entityTypeManager()->getStorage('path_alias');
+  foreach ($node->getTranslationLanguages() as $langcode => $language) {
+    $translation = $node->getTranslation($langcode);
+    $source = '/node/' . $node->id();
+    if ($storage->loadByProperties(['path' => $source, 'langcode' => $langcode])) {
+      continue;
+    }
+    $title = \Drupal::transliteration()->transliterate($translation->label(), $langcode);
+    $slug = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($title)), '-');
+    $slug = substr($slug ?: 'content', 0, 180);
+    $base = '/' . rtrim($slug, '-');
+    $alias = $base;
+    $suffix = 1;
+    // Avoid both existing aliases and real Drupal routes, including /news.
+    while ($storage->loadByProperties(['alias' => $alias]) || \Drupal::service('path.validator')->getUrlIfValidWithoutAccessCheck($alias)) {
+      $alias = $base . '-' . $node->id() . ($suffix > 1 ? '-' . $suffix : '');
+      $suffix++;
+    }
+    PathAlias::create(['path' => $source, 'alias' => $alias, 'langcode' => $langcode])->save();
+  }
+}

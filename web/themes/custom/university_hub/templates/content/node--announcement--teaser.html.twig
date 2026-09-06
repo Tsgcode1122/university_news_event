@@ -1,0 +1,45 @@
+<article class="announcement-card">
+
+  <div class="announcement-card-body">
+
+   {% set priority = node.field_priority.value %}
+
+{% if priority and priority != 'normal' %}
+
+  <div class="announcement-priority announcement-priority--{{ priority }}">
+
+    {% if 'important' in priority %}
+      Important
+   {% elseif 'urgent' in priority %}
+      Urgent
+    {% endif %}
+
+  </div>
+
+{% endif %}
+
+    <h3 class="announcement-title">
+      <a href="{{ url }}">
+        {{ node.label }}
+      </a>
+    </h3>
+
+    <div class="announcement-meta">
+
+      {% if content.field_department %}
+        <div class="announcement-department">
+          {{ content.field_department }}
+        </div>
+      {% endif %}
+
+      {% if node.field_publication_date.value %}
+        <div class="announcement-date">
+          {{ node.field_publication_date.value|date('F j, Y') }}
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</article>

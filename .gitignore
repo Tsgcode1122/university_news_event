@@ -1,0 +1,16 @@
+# DDEV
+.ddev/.global_commands/
+.ddev/.dbimageBuild/
+.ddev/.webimageBuild/
+
+# Drupal generated files
+web/sites/default/files/
+web/sites/default/settings.local.php
+
+# Composer dependencies
+vendor/
+
+# OS / Editor
+.DS_Store
+.idea/
+.vscode/

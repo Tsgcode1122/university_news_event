@@ -1,0 +1,20 @@
+name: University News & Events Hub
+type: theme
+description: "Custom Drupal theme for the University News & Events Hub."
+package: Custom
+core_version_requirement: ^11
+base theme: false
+
+libraries:
+  - university_hub/global-styling
+  - university_hub/global-scripts
+
+regions:
+  utility_nav: "Utility Navigation"
+  branding: "Branding"
+  primary_menu: "Primary Menu"
+  header_actions: "Header Actions"
+  hero: "Hero"
+  content: "Main Content"
+  sidebar: "Sidebar"
+  footer: "Footer"

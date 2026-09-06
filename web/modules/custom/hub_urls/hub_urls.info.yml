@@ -1,0 +1,8 @@
+name: University Hub URLs
+type: module
+description: Creates readable URLs for university content.
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:path_alias

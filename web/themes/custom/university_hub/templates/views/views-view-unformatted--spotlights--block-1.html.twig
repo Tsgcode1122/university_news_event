@@ -1,0 +1,48 @@
+<section class="spotlights-section">
+
+  <div class="spotlights-header">
+
+    <p class="spotlights-kicker">
+      <span aria-hidden="true"></span>
+      SPOTLIGHTS
+    </p>
+
+    <div class="spotlights-title-row">
+
+      <div class="spotlights-heading">
+
+        <h2 class="spotlights-title">
+          Featured Spotlights
+        </h2>
+
+        <p class="spotlights-description">
+          Explore stories about the people, ideas, and initiatives shaping our university community.
+        </p>
+
+      </div>
+
+      <a href="/spotlights" class="spotlights-view-all">
+        View All Spotlights
+        <span aria-hidden="true">→</span>
+      </a>
+
+    </div>
+
+  </div>
+
+
+  {% if rows %}
+
+    <div class="spotlights-grid">
+
+      {% for row in rows|slice(0, 3) %}
+        <div class="spotlight-item">
+          {{ row.content }}
+        </div>
+      {% endfor %}
+
+    </div>
+
+  {% endif %}
+
+</section>

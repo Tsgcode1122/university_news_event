@@ -1,0 +1,51 @@
+<section class="upcoming-events-section">
+
+  <div class="events-section-header">
+
+    <p class="events-kicker">
+      <span aria-hidden="true"></span>
+      CALENDAR
+    </p>
+
+    <div class="events-title-row">
+
+      <div class="events-heading">
+
+        <h2 class="events-section-title">
+          Upcoming Events
+        </h2>
+
+        <p class="events-section-description">
+          Lectures, symposiums, and campus activities open to students,
+          faculty, and the public.
+        </p>
+
+      </div>
+
+      <a href="/events" class="events-view-all">
+        See All Events
+        <span aria-hidden="true">→</span>
+      </a>
+
+    </div>
+
+  </div>
+
+
+  {% if rows %}
+
+    <div class="upcoming-events-grid">
+
+      {% for row in rows|slice(0, 3) %}
+
+        <div class="upcoming-event-item">
+          {{ row.content }}
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  {% endif %}
+
+</section>

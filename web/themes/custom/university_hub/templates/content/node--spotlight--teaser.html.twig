@@ -1,0 +1,68 @@
+<article class="spotlight-card">
+
+  {% if content.field_featured_image %}
+    <a href="{{ url }}" class="spotlight-image-link">
+
+      <div class="spotlight-image">
+        {{ content.field_featured_image }}
+      </div>
+
+    </a>
+  {% endif %}
+
+
+  <div class="spotlight-card-body">
+
+    <div class="spotlight-meta">
+
+   {% set person_type = node.field_person_type.value|lower %}
+
+{% if 'student' in person_type %}
+  <span class="spotlight-person-type">Student</span>
+
+{% elseif 'faculty' in person_type %}
+  <span class="spotlight-person-type">Faculty</span>
+
+{% elseif 'staff' in person_type %}
+  <span class="spotlight-person-type">Staff</span>
+
+{% elseif 'alumni' in person_type %}
+  <span class="spotlight-person-type">Alumni</span>
+
+{% elseif 'researcher' in person_type %}
+  <span class="spotlight-person-type">Researcher</span>
+{% endif %}
+
+      {% if content.field_department %}
+        <div class="spotlight-department">
+          {{ content.field_department }}
+        </div>
+      {% endif %}
+
+    </div>
+
+
+    <h3 class="spotlight-card-title">
+
+      <a href="{{ url }}">
+        {{ node.label }}
+      </a>
+
+    </h3>
+
+
+    {% if node.field_spotlight_story.value %}
+      <div class="spotlight-summary">
+        {{ node.field_spotlight_story.value|striptags }}
+      </div>
+    {% endif %}
+
+
+    <a href="{{ url }}" class="spotlight-read-more">
+      Read more
+      <span aria-hidden="true">→</span>
+    </a>
+
+  </div>
+
+</article>

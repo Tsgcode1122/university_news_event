@@ -1,0 +1,36 @@
+<div{{ attributes.addClass('news-listing', 'events-listing') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  <header class="news-listing-header">
+    <p class="featured-news-kicker"><span aria-hidden="true"></span>{{ 'Events'|t }}</p>
+    <h1>{{ 'Campus Events'|t }}</h1>
+    <p>{{ 'Explore upcoming lectures, campus gatherings, and opportunities to connect with the university community.'|t }}</p>
+  <nav class="news-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+    <a href="{{ path('<front>') }}">{{ 'Home'|t }}</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ 'Events'|t }}</span>
+  </nav>
+  </header>
+  {% if header %}{{ header }}{% endif %}
+  <div class="news-listing-filters">
+    {{ exposed }}
+    <a class="news-clear-filters" href="{{ path('view.events.page_1') }}">{{ 'Clear filters'|t }}</a>
+  </div>
+  <div class="news-results-heading">
+    <h2><span aria-hidden="true"></span>{{ 'Upcoming events'|t }}</h2>
+    {% set total = view.total_rows %}
+    {% set first = view.pager.currentPage * view.pager.itemsPerPage + 1 %}
+    {% set last = min(first + view.result|length - 1, total) %}
+    <p>{% if total %}{{ 'Showing @first–@last of @total events'|t({'@first': first, '@last': last, '@total': total}) }}{% else %}{{ '0 events'|t }}{% endif %}</p>
+  </div>
+  {% if attachment_before %}{{ attachment_before }}{% endif %}
+  {% if rows %}
+    {{ rows }}
+  {% elseif empty %}
+    <div class="news-listing-empty">{{ empty }}</div>
+  {% endif %}
+  {{ pager }}
+  {{ more }}
+  {{ attachment_after }}
+  {{ footer }}
+  {{ feed_icons }}
+</div>

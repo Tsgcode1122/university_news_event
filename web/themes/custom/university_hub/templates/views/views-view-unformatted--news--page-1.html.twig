@@ -1,0 +1,6 @@
+{% if title %}<h2>{{ title }}</h2>{% endif %}
+<div class="news-listing-grid">
+  {% for row in rows %}
+    <div{{ row.attributes.addClass('news-listing-item') }}>{{ row.content }}</div>
+  {% endfor %}
+</div>

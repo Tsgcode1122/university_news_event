@@ -1,0 +1,447 @@
+/* ==================================================
+   UPCOMING EVENTS SECTION
+================================================== */
+
+.upcoming-events-section {
+  width: 100cqw;
+margin-top: 1rem;
+  margin-left: calc(50% - 50cqw);
+
+  padding: 3rem max(1.5rem, calc((100cqw - 1200px) / 2));
+
+  background: #f8fafc;
+}
+
+
+/* ==================================================
+   SECTION HEADER
+================================================== */
+
+.events-section-header {
+  width: 100%;
+
+  margin-bottom: 1.75rem;
+}
+
+
+/* Calendar label */
+
+.events-kicker {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  margin: 0 0 0.65rem;
+
+  color: #0f2d52;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* Gold line */
+
+.events-kicker span {
+  display: block;
+
+  width: 26px;
+  height: 2px;
+
+  background: #ffb81c;
+}
+
+
+/* Title row */
+
+.events-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  width: 100%;
+}
+
+
+/* Heading */
+
+.events-heading {
+  flex: 1;
+}
+
+
+/* Upcoming Events */
+
+.events-section-title {
+  margin: 0 0 0.3rem;
+
+  color: #041e42;
+
+  font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+  font-weight: 800;
+
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+
+/* Description */
+
+.events-section-description {
+  margin: 0;
+
+  max-width: 680px;
+
+  color: #64748b;
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+/* ==================================================
+   SEE ALL EVENTS
+================================================== */
+
+.events-view-all {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  flex-shrink: 0;
+
+  margin-top: 0.3rem;
+  padding: 0.65rem 1rem;
+
+  color: #005eb8;
+
+  border: 1px solid #005eb8;
+  border-radius: 6px;
+
+  font-size: 0.85rem;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.events-view-all:hover,
+.events-view-all:focus {
+  color: #ffffff;
+
+  background: #005eb8;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==================================================
+   EVENTS GRID
+================================================== */
+
+.upcoming-events-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+
+/* ==================================================
+   EVENT CARD
+================================================== */
+
+.event-card {
+  display: grid;
+
+  grid-template-columns: 66px minmax(0, 1fr);
+
+  min-height: 130px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+
+/* ==================================================
+   DATE BOX
+================================================== */
+
+.event-date-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  min-height: 100%;
+
+  padding: 0.75rem 0.3rem;
+
+  color: #ffffff;
+  background: #041e42;
+
+  text-align: center;
+}
+
+
+/* Day */
+
+.event-day {
+  display: block;
+  margin-bottom: 0.2rem;
+
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+
+/* Month */
+
+/* Month — e.g. SEP */
+.event-month {
+  display: block;
+
+  font-size: 0.75rem;
+  font-weight: 800;
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+
+/* Event time — e.g. 10:00 AM – 2:00 PM */
+.event-time {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ==================================================
+   EVENT CONTENT
+================================================== */
+
+.event-card-content {
+  min-width: 0;
+
+  padding: 0.85rem 0.9rem;
+}
+
+
+/* ==================================================
+   EVENT CATEGORY
+================================================== */
+
+.event-category {
+  display: inline-flex;
+
+  margin-bottom: 0.55rem;
+
+  padding: 0.25rem 0.5rem;
+
+  color: #334155;
+  background: #f1f5f9;
+
+  font-size: 0.58rem;
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* Drupal cleanup */
+
+.event-category .field__label {
+  display: none;
+}
+
+.event-category .field,
+.event-category .field__items,
+.event-category .field__item {
+  margin: 0;
+  padding: 0;
+}
+
+.event-category a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+/* ==================================================
+   EVENT TITLE
+================================================== */
+
+.event-card-title {
+  margin: 0 0 0.6rem;
+
+  color: #041e42;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+
+  line-height: 1.2;
+}
+
+.event-card-title a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+.event-card-title a:hover,
+.event-card-title a:focus {
+  color: #005eb8;
+}
+
+
+/* ==================================================
+   EVENT META
+================================================== */
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.25rem;
+
+  color: #94a3b8;
+
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+
+.event-time,
+.event-location {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 0.35rem;
+}
+
+
+.event-time > span:first-child,
+.event-location > span:first-child {
+  flex-shrink: 0;
+
+  color: #94a3b8;
+}
+
+
+/* ==================================================
+   DRUPAL VIEW CLEANUP
+================================================== */
+
+.upcoming-events-section .views-row {
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 950px) {
+
+  .upcoming-events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 680px) {
+
+  .upcoming-events-section {
+    padding: 2.5rem 0;
+  }
+
+
+  .events-title-row {
+    flex-direction: column;
+
+    gap: 0.8rem;
+  }
+
+
+  .events-view-all {
+    margin-top: 0;
+  }
+
+
+  .upcoming-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .event-card {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+
+}
+
+/* Events archive cards, coordinated with News. */
+.events-listing .event-card {
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(4, 30, 66, 0.07);
+}
+
+.events-listing .event-card-content {
+  padding: 1.5rem;
+}
+
+.events-listing .event-card-title {
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.events-listing .event-category {
+  margin-bottom: 0.75rem;
+}
+
+.events-listing .event-meta {
+  line-height: 1.65;
+}

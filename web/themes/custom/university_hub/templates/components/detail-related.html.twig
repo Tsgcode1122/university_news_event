@@ -1,0 +1,17 @@
+{{ detail_related_cache }}
+{% if detail_related %}
+  <aside class="detail-related" aria-label="{{ related_label }}">
+    <h2>{{ related_label }}</h2>
+    <ul>
+      {% for item in detail_related %}
+        <li>
+          <a href="{{ item.url }}">
+            {% if item.image %}<div class="detail-related-image">{{ item.image }}</div>{% endif %}
+            <span>{{ item.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a class="detail-browse" href="{{ path(listing_route) }}">{{ 'View all'|t }} <span aria-hidden="true">→</span></a>
+  </aside>
+{% endif %}

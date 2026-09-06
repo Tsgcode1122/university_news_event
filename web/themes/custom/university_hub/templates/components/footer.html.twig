@@ -1,0 +1,35 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <p class="footer-kicker">{{ 'Our campus. Our stories.'|t }}</p>
+        <a class="footer-logo" href="{{ path('<front>') }}">{{ 'University News & Events Hub'|t }}</a>
+        <p class="footer-description">{{ 'Ideas that inspire. People who make a difference. Stay connected to the stories shaping our university community.'|t }}</p>
+      </div>
+
+      <nav class="footer-navigation" aria-label="{{ 'Footer navigation'|t }}">
+        <h2 class="footer-heading">{{ 'Explore the hub'|t }}</h2>
+        <ul class="footer-links">
+          <li><a href="/news">{{ 'Latest news'|t }} <span aria-hidden="true">↗</span></a></li>
+          <li><a href="/events">{{ 'Upcoming events'|t }} <span aria-hidden="true">↗</span></a></li>
+          <li><a href="/spotlights">{{ 'Community spotlights'|t }} <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-discover">
+        <h2 class="footer-heading">{{ 'Find your next inspiration'|t }}</h2>
+        <p>{{ 'Explore new ideas, celebrate achievements, and discover what’s happening on campus.'|t }}</p>
+        <a class="footer-cta" href="/events">{{ 'Explore campus events'|t }} <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    {% if page.footer %}
+      <div class="footer-blocks">{{ page.footer }}</div>
+    {% endif %}
+
+    <div class="footer-bottom">
+      <p><a class="footer-admin-login" href="{{ path('user.login') }}" aria-label="{{ 'Administrator login'|t }}" title="{{ 'Administrator login'|t }}">©</a> {{ 'now'|date('Y') }} {{ 'University News & Events Hub'|t }}</p>
+      <span>{{ 'Discover. Connect. Be inspired.'|t }}</span>
+    </div>
+  </div>
+</footer>
